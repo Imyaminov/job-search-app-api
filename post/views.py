@@ -2,8 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics, filters
 from rest_framework.decorators import api_view
 
-from .serializers import PostSerializers, StatusSerializers
-from .models import Post, Status, Statistic
+from .serializers import PostSerializers, StatisticSerializers, WorkerPostSerializers
+from .models import Post, Status, Statistic, WorkerPost
 from .filters import PostFilter
 from django_filters.rest_framework import DjangoFilterBackend
 # Create your views here.
@@ -19,7 +19,16 @@ class PostApiView(generics.ListAPIView):
 
 class StatisticApiView(generics.ListAPIView):
     queryset = Statistic.objects.all()
-    serializer_class = StatusSerializers
+    serializer_class = StatisticSerializers
+
+class WorkerPostListApiView(generics.ListAPIView):
+    queryset = WorkerPost.objects.all()
+    serializer_class = WorkerPostSerializers
+
+    # def get_queryset(self):
+    #     return self.queryset.annotate(
+    #         min_price = User.objects
+    #     )
 
 
 

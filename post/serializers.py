@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from common.models import User
-from .models import Post, Status, Company, Statistic
+from .models import Post, Status, Company, Statistic, WorkerPost
 
 class UserSerializers(serializers.ModelSerializer):
     class Meta():
@@ -22,3 +22,7 @@ class StatisticSerializers(serializers.ModelSerializer):
         model = Statistic
         fields = ['company_count', 'post_count', 'user_count']
 
+class WorkerPostSerializers(serializers.ModelSerializer):
+    class Meta():
+        model = WorkerPost
+        fields = '__all__'

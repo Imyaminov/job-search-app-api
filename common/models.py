@@ -20,6 +20,8 @@ class User(AbstractUser):
 
     job_field = models.ForeignKey(ProfessionalField, on_delete=models.CASCADE, related_name='field_fromPost')
     job_position = models.ForeignKey(OfficialPosition, on_delete=models.CASCADE, related_name='position_name')
+    min_price = models.PositiveIntegerField(blank=True)
+    max_price = models.PositiveIntegerField()
 
     created_at = models.DateTimeField(("date created"), auto_now_add=True, null=True)
     updated_at = models.DateTimeField(("date updated"), auto_now=True)
