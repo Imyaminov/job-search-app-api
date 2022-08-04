@@ -1,9 +1,9 @@
 from django.conf import settings
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+# from django.utils.translation import ugettext_lazy
 
 from django.template import defaultfilters
-from unidecode import unidecode
+# from unidecode import unidecode
 
 
 def generate_unique_slug(klass, field):

@@ -1,8 +1,6 @@
-
-
 # from django.conf import settings
 from django.contrib.auth.models import AbstractUser
-
+from post.models import ProfessionalField, OfficialPosition
 from django.db import models
 # from django.utils import timezone
 
@@ -19,6 +17,10 @@ class User(AbstractUser):
         },
         null=True
     )
+
+    job_field = models.ForeignKey(ProfessionalField, on_delete=models.CASCADE, related_name='field_fromPost')
+    job_position = models.ForeignKey(OfficialPosition, on_delete=models.CASCADE, related_name='position_name')
+
     created_at = models.DateTimeField(("date created"), auto_now_add=True, null=True)
     updated_at = models.DateTimeField(("date updated"), auto_now=True)
 
